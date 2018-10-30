@@ -1,0 +1,30 @@
+{% extends "mainApp/wrapper.html" %}
+{% block content %}
+<div class='container-fluid'>
+<form action="{% url 'mainApp:post_create' %}" method="post">
+  {% csrf_token %}
+  <div class="input-group mb-3" style='margin-top:1%'>
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">{{ form.title.label }}</span>
+    </div>
+    {{ form.title }}
+  </div>
+  {{ form.post.label }}
+  {{ form.post }}
+  {{ form.author }}
+
+  <!--{% for field in form %}
+      <div class='form-group'>
+        {% if fields.errors %}
+          <div class='alert alert-danger'>
+            {{ field.errors }}
+          </div>
+        {% endif %}
+        {{field.label}}
+        {{ field }}
+      </div>
+  {% endfor %}-->
+  <input class='button' type="submit" value="Сохранить">
+</form>
+</div>
+{% endblock %}

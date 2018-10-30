@@ -1,0 +1,14 @@
+{% for pos in object_list %}
+<hr color=#4B2455 />
+    <div class='bg-light'>
+      <div style='margin:2%'>
+        <a style='color: #55A29F' href="/news/{{pos.id}}"><font size='+3' face='Arial Unicode MS'>{{pos.title}}</font></a>
+        <div style='margin-left:2%'>
+            <font face='Arial Unicode MS'>{{pos.post}}</font><br><br>
+        </div>
+        <p align='right'><font face='Timi'>{{pos.date|date:"d.m.Y"}}</font></p>
+        <a style='color: #55A29F' href="{% url 'mainApp:profile' pos.author.id %}"><p align="right"><small>{{pos.author}}</small></p></a>
+      </div>
+    </div>
+{% endfor %}
+<hr color=#4B2455 />
